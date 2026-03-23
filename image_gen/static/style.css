@@ -1,0 +1,284 @@
+/* ── Fibered CSP Image Generator 样式 ── */
+
+:root {
+    --bg: #1a1a2e;
+    --surface: #16213e;
+    --surface2: #0f3460;
+    --accent: #e94560;
+    --text: #eee;
+    --text-dim: #999;
+    --border: #333;
+    --green: #28c76f;
+    --red: #ea5455;
+    --blue: #00cfe8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ── Tab 切换 ── */
+.tab-bar {
+    display: flex;
+    background: var(--surface);
+    border-bottom: 2px solid var(--border);
+    padding: 0 16px;
+}
+.tab-bar button {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    padding: 10px 24px;
+    font-size: 14px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+}
+.tab-bar button.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* ── 主布局 ── */
+.main-layout {
+    display: grid;
+    grid-template-columns: 310px 1fr 240px;
+    height: calc(100vh - 43px);
+    gap: 1px;
+    background: var(--border);
+}
+
+.panel {
+    background: var(--surface);
+    padding: 12px;
+    overflow-y: auto;
+}
+
+/* ── 参数面板 ── */
+.param-group {
+    margin-bottom: 14px;
+}
+.param-group h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+}
+.param-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    gap: 6px;
+}
+.param-row label {
+    width: 72px;
+    min-width: 72px;
+    font-size: 12px;
+    color: var(--text-dim);
+    flex-shrink: 0;
+}
+.param-row input[type="range"] {
+    flex: 1;
+    min-width: 0;
+    accent-color: var(--accent);
+}
+.param-row input[type="number"] {
+    width: 60px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 2px 4px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+.param-row select {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 2px 4px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+.param-val {
+    min-width: 42px;
+    width: 42px;
+    text-align: right;
+    font-size: 11px;
+    color: var(--blue);
+    font-family: monospace;
+    flex-shrink: 0;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+/* α 特殊大字体 */
+.alpha-display {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--accent);
+    text-align: center;
+    margin: 4px 0;
+    font-family: monospace;
+}
+
+/* 多选框组 */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+}
+.checkbox-group label {
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+/* ── Generate 按钮 ── */
+.btn-generate {
+    width: 100%;
+    padding: 10px;
+    background: var(--accent);
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: opacity .2s;
+}
+.btn-generate:hover { opacity: 0.85; }
+.btn-generate:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.preset-hint {
+    margin-top: 6px;
+    color: var(--text-dim);
+    font-size: 11px;
+}
+
+/* ── 图像展示区 ── */
+.image-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.image-cell {
+    text-align: center;
+}
+.image-cell canvas {
+    border: 1px solid var(--border);
+    image-rendering: pixelated;
+    background: #000;
+}
+.image-cell .label {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+}
+
+/* ── 评分仪表盘 ── */
+.dashboard h3 {
+    font-size: 12px;
+    color: var(--accent);
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+}
+.score-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
+    font-size: 12px;
+}
+.score-row .label { color: var(--text-dim); }
+.score-row .value { font-family: monospace; color: var(--blue); }
+.score-row .value.collapsed { color: var(--red); }
+.score-row .value.ok { color: var(--green); }
+
+.status-light {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+.status-light.green { background: var(--green); }
+.status-light.red { background: var(--red); }
+
+.metadata {
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--text-dim);
+}
+
+/* ── 相图扫描面板 ── */
+.sweep-panel { display: none; }
+.sweep-panel.active { display: grid; grid-template-columns: 260px 1fr; height: calc(100vh - 43px); gap: 1px; background: var(--border); }
+.generate-panel { display: grid; }
+.generate-panel.hidden { display: none; }
+
+.sweep-viz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+}
+.sweep-viz canvas {
+    border: 1px solid var(--border);
+    image-rendering: pixelated;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--bg);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+.progress-bar .fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width .3s;
+}
+
+/* ── 折叠组 ── */
+.collapsible > h3 {
+    cursor: pointer;
+    user-select: none;
+}
+.collapsible > h3::before {
+    content: '▸ ';
+}
+.collapsible.open > h3::before {
+    content: '▾ ';
+}
+.collapsible > .content {
+    display: none;
+}
+.collapsible.open > .content {
+    display: block;
+}

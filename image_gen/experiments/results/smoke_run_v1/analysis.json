@@ -1,0 +1,728 @@
+{
+  "manifest": {
+    "protocol_path": "/home/laole/ai/fibered_csp/image_gen/experiments/protocols/alpha_sigma_size_smoke_v1.json",
+    "protocol_name": "alpha_sigma_size_smoke",
+    "protocol_version": "1.0",
+    "protocol_sha256": "ce74e51c708d4b93636e0eef73b206e66ef44d9fed4d750f150a277400d2151b",
+    "generated_at": "2026-03-10 13:49:14",
+    "result_dir": "/home/laole/ai/fibered_csp/image_gen/experiments/results/smoke_run_v1",
+    "alphas": [
+      0.04,
+      0.06,
+      0.08,
+      0.1
+    ],
+    "sigmas": [
+      0.4,
+      0.6,
+      0.8,
+      1.0,
+      1.2
+    ],
+    "seeds": [
+      11,
+      23
+    ],
+    "case_names": [
+      "standard_8x8",
+      "relaxed_8x8"
+    ],
+    "total_runs": 80,
+    "raw_runs_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/smoke_run_v1/raw_runs.jsonl",
+    "analysis_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/smoke_run_v1/analysis.json",
+    "report_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/smoke_run_v1/report.md",
+    "summary_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/smoke_run_v1/summary.md"
+  },
+  "protocol_name": "alpha_sigma_size_smoke",
+  "protocol_version": "1.0",
+  "research_questions": [
+    "For the chosen cases, how does collapse_rate vary over the alpha-sigma grid?",
+    "For the focus alpha slices, what sigma threshold is required for any survival and full survival?",
+    "How do these thresholds differ between standard and relaxed parameter settings at 8x8?"
+  ],
+  "focus_alphas": [
+    0.1,
+    0.08,
+    0.06,
+    0.04
+  ],
+  "alphas": [
+    0.04,
+    0.06,
+    0.08,
+    0.1
+  ],
+  "sigmas": [
+    0.4,
+    0.6,
+    0.8,
+    1.0,
+    1.2
+  ],
+  "cell_rows": [
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.04,
+      "sigma": 0.4,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.04,
+      "sigma": 0.6,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.04,
+      "sigma": 0.8,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.04,
+      "sigma": 1.0,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.04,
+      "sigma": 1.2,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.004836875387601453,
+      "mean_phi_cl": 20.967106310701023,
+      "mean_xi": 1.5,
+      "mean_phi_mirror": 0.7008928571428572,
+      "state": "stable"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.06,
+      "sigma": 0.4,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.06,
+      "sigma": 0.6,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.06,
+      "sigma": 0.8,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.06,
+      "sigma": 1.0,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.005048241664199968,
+      "mean_phi_cl": 31.260299621594918,
+      "mean_xi": 1.5,
+      "mean_phi_mirror": 0.7213541666666666,
+      "state": "stable"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.06,
+      "sigma": 1.2,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.0035923589185493563,
+      "mean_phi_cl": 43.4705236020889,
+      "mean_xi": 1.0,
+      "mean_phi_mirror": 0.6752232142857143,
+      "state": "stable"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.08,
+      "sigma": 0.4,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.08,
+      "sigma": 0.6,
+      "collapse_rate": 0.5,
+      "noncollapsed": 1,
+      "total": 2,
+      "mean_phi_em": 1843680597.2144873,
+      "mean_phi_cl": 3.2156261547900412e-09,
+      "mean_xi": 1.0,
+      "mean_phi_mirror": 0.6651785714285715,
+      "state": "mixed"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.08,
+      "sigma": 0.8,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.03074593265505538,
+      "mean_phi_cl": 25.509475219912986,
+      "mean_xi": 1.5,
+      "mean_phi_mirror": 0.7388392857142858,
+      "state": "stable"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.08,
+      "sigma": 1.0,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.009799996867495303,
+      "mean_phi_cl": 37.957341450039166,
+      "mean_xi": 1.0,
+      "mean_phi_mirror": 0.6733630952380953,
+      "state": "stable"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.08,
+      "sigma": 1.2,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.006710135140229491,
+      "mean_phi_cl": 44.520427342751134,
+      "mean_xi": 1.0,
+      "mean_phi_mirror": 0.7008928571428572,
+      "state": "stable"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.1,
+      "sigma": 0.4,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.1,
+      "sigma": 0.6,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.0240658038795719,
+      "mean_phi_cl": 41.40695137219096,
+      "mean_xi": 1.5,
+      "mean_phi_mirror": 0.71875,
+      "state": "stable"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.1,
+      "sigma": 0.8,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.02504523127600636,
+      "mean_phi_cl": 34.86127976464536,
+      "mean_xi": 1.5,
+      "mean_phi_mirror": 0.7053571428571429,
+      "state": "stable"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.1,
+      "sigma": 1.0,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.007432063441246739,
+      "mean_phi_cl": 53.833575173944666,
+      "mean_xi": 1.5,
+      "mean_phi_mirror": 0.7209821428571428,
+      "state": "stable"
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "alpha": 0.1,
+      "sigma": 1.2,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.016622058113296055,
+      "mean_phi_cl": 42.177396658022474,
+      "mean_xi": 1.0,
+      "mean_phi_mirror": 0.6919642857142858,
+      "state": "stable"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.04,
+      "sigma": 0.4,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.04,
+      "sigma": 0.6,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.04,
+      "sigma": 0.8,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.04,
+      "sigma": 1.0,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.04,
+      "sigma": 1.2,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.06,
+      "sigma": 0.4,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.06,
+      "sigma": 0.6,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.06,
+      "sigma": 0.8,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.06,
+      "sigma": 1.0,
+      "collapse_rate": 0.5,
+      "noncollapsed": 1,
+      "total": 2,
+      "mean_phi_em": 200400105.43734914,
+      "mean_phi_cl": 2.20540903223535e-08,
+      "mean_xi": 1.0,
+      "mean_phi_mirror": 0.6696428571428572,
+      "state": "mixed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.06,
+      "sigma": 1.2,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.00868212366262462,
+      "mean_phi_cl": 28.251644327322037,
+      "mean_xi": 1.0,
+      "mean_phi_mirror": 0.699404761904762,
+      "state": "stable"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.08,
+      "sigma": 0.4,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.08,
+      "sigma": 0.6,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.08,
+      "sigma": 0.8,
+      "collapse_rate": 0.5,
+      "noncollapsed": 1,
+      "total": 2,
+      "mean_phi_em": 629888727.2182028,
+      "mean_phi_cl": 9.355405164172573e-09,
+      "mean_xi": 1.0,
+      "mean_phi_mirror": 0.6696428571428572,
+      "state": "mixed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.08,
+      "sigma": 1.0,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.014472005170003526,
+      "mean_phi_cl": 30.97829247015207,
+      "mean_xi": 1.5,
+      "mean_phi_mirror": 0.7200892857142858,
+      "state": "stable"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.08,
+      "sigma": 1.2,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.02501053509225392,
+      "mean_phi_cl": 27.583585807751838,
+      "mean_xi": 1.5,
+      "mean_phi_mirror": 0.6770833333333334,
+      "state": "stable"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.1,
+      "sigma": 0.4,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.1,
+      "sigma": 0.6,
+      "collapse_rate": 1.0,
+      "noncollapsed": 0,
+      "total": 2,
+      "mean_phi_em": null,
+      "mean_phi_cl": null,
+      "mean_xi": null,
+      "mean_phi_mirror": null,
+      "state": "collapsed"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.1,
+      "sigma": 0.8,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.017642925239378132,
+      "mean_phi_cl": 37.3558501395772,
+      "mean_xi": 2.0,
+      "mean_phi_mirror": 0.734375,
+      "state": "stable"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.1,
+      "sigma": 1.0,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.01667971569030794,
+      "mean_phi_cl": 38.54764459195639,
+      "mean_xi": 1.5,
+      "mean_phi_mirror": 0.7239583333333334,
+      "state": "stable"
+    },
+    {
+      "case_name": "standard_8x8",
+      "alpha": 0.1,
+      "sigma": 1.2,
+      "collapse_rate": 0.0,
+      "noncollapsed": 2,
+      "total": 2,
+      "mean_phi_em": 0.040565418942913295,
+      "mean_phi_cl": 28.998360133747934,
+      "mean_xi": 2.0,
+      "mean_phi_mirror": 0.7455357142857143,
+      "state": "stable"
+    }
+  ],
+  "cases": {
+    "standard_8x8": {
+      "case_name": "standard_8x8",
+      "stable_cells": 6,
+      "mixed_cells": 2,
+      "collapsed_cells": 12,
+      "stable_fraction": 0.3,
+      "mixed_fraction": 0.1,
+      "collapsed_fraction": 0.6,
+      "sigma_any_survival_by_alpha": {
+        "0.04": null,
+        "0.06": 1.0,
+        "0.08": 0.8,
+        "0.10": 0.8
+      },
+      "sigma_full_survival_by_alpha": {
+        "0.04": null,
+        "0.06": 1.2,
+        "0.08": 1.0,
+        "0.10": 0.8
+      },
+      "lowest_fully_stable_alpha_by_sigma": {
+        "0.40": null,
+        "0.60": null,
+        "0.80": 0.1,
+        "1.00": 0.08,
+        "1.20": 0.06
+      },
+      "focus_summary": {
+        "0.10": {
+          "sigma_any_survival": 0.8,
+          "sigma_full_survival": 0.8
+        },
+        "0.08": {
+          "sigma_any_survival": 0.8,
+          "sigma_full_survival": 1.0
+        },
+        "0.06": {
+          "sigma_any_survival": 1.0,
+          "sigma_full_survival": 1.2
+        },
+        "0.04": {
+          "sigma_any_survival": null,
+          "sigma_full_survival": null
+        }
+      },
+      "focus_any_thresholds": [
+        0.8,
+        0.8,
+        1.0,
+        null
+      ],
+      "focus_full_thresholds": [
+        0.8,
+        1.0,
+        1.2,
+        null
+      ],
+      "focus_any_threshold_mean": 0.8666666666666667,
+      "focus_full_threshold_mean": 1.0,
+      "focus_any_threshold_monotone": true,
+      "focus_full_threshold_monotone": true,
+      "ascii_phase_map": "α\\σ   0.4  0.6  0.8  1.0  1.2\n0.10 X    X    S    S    S\n0.08 X    X    M    S    S\n0.06 X    X    X    M    S\n0.04 X    X    X    X    X"
+    },
+    "relaxed_8x8": {
+      "case_name": "relaxed_8x8",
+      "stable_cells": 10,
+      "mixed_cells": 1,
+      "collapsed_cells": 9,
+      "stable_fraction": 0.5,
+      "mixed_fraction": 0.05,
+      "collapsed_fraction": 0.45,
+      "sigma_any_survival_by_alpha": {
+        "0.04": 1.2,
+        "0.06": 1.0,
+        "0.08": 0.6,
+        "0.10": 0.6
+      },
+      "sigma_full_survival_by_alpha": {
+        "0.04": 1.2,
+        "0.06": 1.0,
+        "0.08": 0.8,
+        "0.10": 0.6
+      },
+      "lowest_fully_stable_alpha_by_sigma": {
+        "0.40": null,
+        "0.60": 0.1,
+        "0.80": 0.08,
+        "1.00": 0.06,
+        "1.20": 0.04
+      },
+      "focus_summary": {
+        "0.10": {
+          "sigma_any_survival": 0.6,
+          "sigma_full_survival": 0.6
+        },
+        "0.08": {
+          "sigma_any_survival": 0.6,
+          "sigma_full_survival": 0.8
+        },
+        "0.06": {
+          "sigma_any_survival": 1.0,
+          "sigma_full_survival": 1.0
+        },
+        "0.04": {
+          "sigma_any_survival": 1.2,
+          "sigma_full_survival": 1.2
+        }
+      },
+      "focus_any_thresholds": [
+        0.6,
+        0.6,
+        1.0,
+        1.2
+      ],
+      "focus_full_thresholds": [
+        0.6,
+        0.8,
+        1.0,
+        1.2
+      ],
+      "focus_any_threshold_mean": 0.85,
+      "focus_full_threshold_mean": 0.9,
+      "focus_any_threshold_monotone": true,
+      "focus_full_threshold_monotone": true,
+      "ascii_phase_map": "α\\σ   0.4  0.6  0.8  1.0  1.2\n0.10 X    S    S    S    S\n0.08 X    M    S    S    S\n0.06 X    X    X    S    S\n0.04 X    X    X    X    S"
+    }
+  },
+  "global_summary": {
+    "case_names": [
+      "standard_8x8",
+      "relaxed_8x8"
+    ],
+    "all_cases_focus_full_threshold_monotone": true,
+    "all_cases_focus_any_threshold_monotone": true,
+    "stable_fraction_by_case": {
+      "standard_8x8": 0.3,
+      "relaxed_8x8": 0.5
+    },
+    "focus_full_threshold_mean_by_case": {
+      "standard_8x8": 1.0,
+      "relaxed_8x8": 0.9
+    }
+  }
+}

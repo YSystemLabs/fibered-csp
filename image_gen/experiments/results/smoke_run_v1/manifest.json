@@ -1,0 +1,34 @@
+{
+  "protocol_path": "/home/laole/ai/fibered_csp/image_gen/experiments/protocols/alpha_sigma_size_smoke_v1.json",
+  "protocol_name": "alpha_sigma_size_smoke",
+  "protocol_version": "1.0",
+  "protocol_sha256": "ce74e51c708d4b93636e0eef73b206e66ef44d9fed4d750f150a277400d2151b",
+  "generated_at": "2026-03-10 13:49:14",
+  "result_dir": "/home/laole/ai/fibered_csp/image_gen/experiments/results/smoke_run_v1",
+  "alphas": [
+    0.04,
+    0.06,
+    0.08,
+    0.1
+  ],
+  "sigmas": [
+    0.4,
+    0.6,
+    0.8,
+    1.0,
+    1.2
+  ],
+  "seeds": [
+    11,
+    23
+  ],
+  "case_names": [
+    "standard_8x8",
+    "relaxed_8x8"
+  ],
+  "total_runs": 80,
+  "raw_runs_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/smoke_run_v1/raw_runs.jsonl",
+  "analysis_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/smoke_run_v1/analysis.json",
+  "report_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/smoke_run_v1/report.md",
+  "summary_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/smoke_run_v1/summary.md"
+}

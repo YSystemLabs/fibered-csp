@@ -1,0 +1,68 @@
+{
+  "protocol_name": "alpha_sigma_size_smoke",
+  "protocol_version": "1.0",
+  "description": "Small smoke protocol for validating the strict results-driven alpha-sigma-size pipeline.",
+  "research_questions": [
+    "For the chosen cases, how does collapse_rate vary over the alpha-sigma grid?",
+    "For the focus alpha slices, what sigma threshold is required for any survival and full survival?",
+    "How do these thresholds differ between standard and relaxed parameter settings at 8x8?"
+  ],
+  "grid": {
+    "alpha": {"start": 0.04, "stop": 0.10, "step": 0.02},
+    "sigma": {"start": 0.4, "stop": 1.2, "step": 0.2}
+  },
+  "seed_policy": {
+    "seeds": [11, 23]
+  },
+  "focus_alphas": [0.10, 0.08, 0.06, 0.04],
+  "cases": [
+    {
+      "name": "standard_8x8",
+      "params": {
+        "width": 8,
+        "height": 8,
+        "levels": 8,
+        "target_mode": "random_smooth",
+        "symmetry": ["none"],
+        "tau": 0.4,
+        "beta": 1.0,
+        "gamma": 2.0,
+        "mu": 0.0,
+        "dir_strength": 0.0,
+        "dir_angle": 0.0,
+        "translate_period": 4,
+        "T_init": 6.0,
+        "T_min": 0.01,
+        "cooling": 0.998,
+        "max_iter": 800,
+        "color_mode": "grayscale",
+        "K": 255.0,
+        "w_pixel": 0.1
+      }
+    },
+    {
+      "name": "relaxed_8x8",
+      "params": {
+        "width": 8,
+        "height": 8,
+        "levels": 8,
+        "target_mode": "random_smooth",
+        "symmetry": ["none"],
+        "tau": 0.4,
+        "beta": 1.0,
+        "gamma": 2.0,
+        "mu": 0.0,
+        "dir_strength": 0.0,
+        "dir_angle": 0.0,
+        "translate_period": 4,
+        "T_init": 6.0,
+        "T_min": 0.01,
+        "cooling": 0.998,
+        "max_iter": 800,
+        "color_mode": "grayscale",
+        "K": 0.25,
+        "w_pixel": 2.0
+      }
+    }
+  ]
+}

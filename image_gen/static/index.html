@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fibered CSP Image Generator</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- Tab 切换 -->
+<div class="tab-bar">
+    <button class="active" onclick="switchTab('generate')">单次生成</button>
+    <button onclick="switchTab('sweep')">相图扫描</button>
+</div>
+
+<!-- ═══ 单次生成 Tab ═══ -->
+<div id="generate-panel" class="main-layout generate-panel">
+
+    <!-- 左侧：参数面板 -->
+    <div class="panel" id="params-panel">
+
+        <div class="param-group">
+            <h3>演示预设</h3>
+            <div class="param-row">
+                <label>Preset</label>
+                <select id="preset-select" onchange="applySelectedPreset()">
+                    <option value="">自定义参数</option>
+                    <option value="rgb_soft_sym">RGB 柔和彩色镜像</option>
+                    <option value="rgb_center_quad">RGB 四象限花窗</option>
+                    <option value="rgb_kaleido_c4">RGB C4 万花筒</option>
+                    <option value="rgb_neon_strata">RGB 霓虹层纹</option>
+                    <option value="rgb_sunset_ud">RGB 日落横渐变</option>
+                    <option value="rgb_checker_pop">RGB 波普棋盘</option>
+                    <option value="grayscale_mirror_blob">灰度镜像团块</option>
+                    <option value="grayscale_texture">灰度高对比纹理</option>
+                    <option value="lowalpha_smooth_alive">低 α 存活：平滑噪声</option>
+                    <option value="lowalpha_blob_lr">低 α 存活：镜像团块</option>
+                    <option value="lowalpha_checker_alive">低 α 存活：棋盘纹理</option>
+                </select>
+            </div>
+            <div class="preset-hint">选择后自动填入一组适合前端展示的参数。包含常规高颜值预设，以及 3 组经实验验证可在低 α 下存活的 relaxed 预设。</div>
+        </div>
+
+        <!-- 画布参数 -->
+        <div class="param-group">
+            <h3>画布</h3>
+            <div class="param-row">
+                <label>Size</label>
+                <select id="p-size">
+                    <option value="4">4 × 4</option>
+                    <option value="8">8 × 8</option>
+                    <option value="12">12 × 12</option>
+                    <option value="16" selected>16 × 16</option>
+                    <option value="24">24 × 24</option>
+                    <option value="32">32 × 32</option>
+                    <option value="48">48 × 48</option>
+                    <option value="64">64 × 64</option>
+                </select>
+            </div>
+            <div class="param-row">
+                <label>Color mode</label>
+                <select id="p-color_mode">
+                    <option value="grayscale" selected>grayscale</option>
+                    <option value="rgb">rgb</option>
+                </select>
+            </div>
+            <div class="param-row">
+                <label>Levels</label>
+                <select id="p-levels">
+                    <option value="4">4</option>
+                    <option value="8" selected>8</option>
+                    <option value="16">16</option>
+                    <option value="32">32</option>
+                </select>
+            </div>
+            <div class="param-row">
+                <label>Seed</label>
+                <input type="number" id="p-seed" value="42" min="0" max="999999">
+            </div>
+            <div class="param-row">
+                <label>Target mode</label>
+                <select id="p-target_mode">
+                    <option value="random_uniform">random_uniform</option>
+                    <option value="random_smooth" selected>random_smooth</option>
+                    <option value="gradient_h">gradient_h</option>
+                    <option value="gradient_v">gradient_v</option>
+                    <option value="checkerboard">checkerboard</option>
+                    <option value="center_blob">center_blob</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 涌现参数（高亮） -->
+        <div class="param-group">
+            <h3>涌现 (EMERGENCE)</h3>
+            <div class="alpha-display" id="alpha-display">α = 0.50</div>
+            <div class="param-row">
+                <label>α</label>
+                <input type="range" id="p-alpha" min="0.01" max="1" step="0.01" value="0.5"
+                       oninput="updateAlpha(this.value)">
+                <span class="param-val" id="v-alpha">0.50</span>
+            </div>
+            <div class="param-row">
+                <label>K</label>
+                <input type="range" id="p-K" min="10" max="1000" step="5" value="255">
+                <span class="param-val" id="v-K">255</span>
+            </div>
+        </div>
+
+        <!-- 像素层 -->
+        <div class="param-group">
+            <h3>像素层</h3>
+            <div class="param-row">
+                <label>σ (pref)</label>
+                <input type="range" id="p-sigma" min="0.05" max="2" step="0.01" value="0.3">
+                <span class="param-val" id="v-sigma">0.30</span>
+            </div>
+        </div>
+
+        <!-- 区域层 -->
+        <div class="param-group">
+            <h3>区域层 (边缘)</h3>
+            <div class="param-row">
+                <label>τ (threshold)</label>
+                <input type="range" id="p-tau" min="0.05" max="0.95" step="0.01" value="0.3">
+                <span class="param-val" id="v-tau">0.30</span>
+            </div>
+            <div class="param-row">
+                <label>β (edge)</label>
+                <input type="range" id="p-beta" min="0.1" max="20" step="0.1" value="5">
+                <span class="param-val" id="v-beta">5.0</span>
+            </div>
+            <div class="param-row">
+                <label>γ (intra)</label>
+                <input type="range" id="p-gamma" min="0.1" max="30" step="0.1" value="10">
+                <span class="param-val" id="v-gamma">10.0</span>
+            </div>
+            <div class="param-row">
+                <label>μ (texture)</label>
+                <input type="range" id="p-mu" min="0" max="50" step="0.1" value="0">
+                <span class="param-val" id="v-mu">0.0</span>
+            </div>
+            <div class="param-row">
+                <label>Dir strength</label>
+                <input type="range" id="p-dir_strength" min="-1" max="1" step="0.1" value="0">
+                <span class="param-val" id="v-dir_strength">0.0</span>
+            </div>
+            <div class="param-row">
+                <label>Dir angle</label>
+                <input type="range" id="p-dir_angle" min="0" max="180" step="5" value="0">
+                <span class="param-val" id="v-dir_angle">0</span>
+            </div>
+        </div>
+
+        <!-- 对称 -->
+        <div class="param-group">
+            <h3>对称层</h3>
+            <div class="checkbox-group" id="sym-checkboxes">
+                <label><input type="checkbox" value="none" checked> none</label>
+                <label><input type="checkbox" value="lr"> lr</label>
+                <label><input type="checkbox" value="ud"> ud</label>
+                <label><input type="checkbox" value="quad"> quad</label>
+                <label><input type="checkbox" value="c4"> c4</label>
+                <label><input type="checkbox" value="trans_h"> trans_h</label>
+            </div>
+            <div class="param-row" style="margin-top:6px">
+                <label>ε (tolerance)</label>
+                <input type="range" id="p-epsilon" min="0" max="16" step="1" value="0">
+                <span class="param-val" id="v-epsilon">0</span>
+            </div>
+            <div class="param-row">
+                <label>Period</label>
+                <input type="number" id="p-translate_period" value="4" min="2" max="64">
+            </div>
+        </div>
+
+        <!-- 搜索参数（折叠） -->
+        <div class="param-group collapsible" onclick="this.classList.toggle('open')">
+            <h3>搜索参数</h3>
+            <div class="content" onclick="event.stopPropagation()">
+                <div class="param-row">
+                    <label>Max iter</label>
+                    <input type="number" id="p-max_iter" value="30000" min="1000" max="500000" step="100">
+                </div>
+                <div class="param-row">
+                    <label>T_init</label>
+                    <input type="number" id="p-T_init" value="10" min="0.1" max="100" step="0.1">
+                </div>
+                <div class="param-row">
+                    <label>T_min</label>
+                    <input type="number" id="p-T_min" value="0.01" min="0.001" max="1" step="0.001">
+                </div>
+                <div class="param-row">
+                    <label>W_pixel</label>
+                    <input type="number" id="p-w_pixel" value="0.1" min="0" max="9999" step="0.001">
+                </div>
+                <div class="param-row">
+                    <label>Cooling</label>
+                    <input type="range" id="p-cooling" min="0.990" max="0.9999" step="0.0001" value="0.9995">
+                    <span class="param-val" id="v-cooling">0.9995</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-generate" id="btn-generate" onclick="doGenerate()">Generate</button>
+    </div>
+
+    <!-- 中央：图像展示 -->
+    <div class="panel image-area">
+        <div class="image-grid">
+            <div class="image-cell">
+                <canvas id="c-result" width="256" height="256"></canvas>
+                <div class="label">生成结果</div>
+            </div>
+            <div class="image-cell">
+                <canvas id="c-target" width="256" height="256"></canvas>
+                <div class="label">目标偏好</div>
+            </div>
+            <div class="image-cell">
+                <canvas id="c-heatmap" width="256" height="256"></canvas>
+                <div class="label">区域代价热力图</div>
+            </div>
+            <div class="image-cell">
+                <canvas id="c-closure" width="256" height="256"></canvas>
+                <div class="label">闭包修正</div>
+            </div>
+        </div>
+        <div id="status-msg" style="color:var(--text-dim);font-size:12px;"></div>
+    </div>
+
+    <!-- 右侧：评分仪表盘 -->
+    <div class="panel dashboard" id="dashboard">
+        <h3>评分仪表盘</h3>
+
+        <div class="score-row"><span class="label">Dir_pixel (log)</span><span class="value" id="s-dir_pixel">—</span></div>
+        <div class="score-row"><span class="label">Dir_region</span><span class="value" id="s-dir_region">—</span></div>
+        <div class="score-row"><span class="label">Dir_sym</span><span class="value" id="s-dir_sym">—</span></div>
+        <hr style="border-color:var(--border);margin:6px 0">
+        <div class="score-row"><span class="label">Em_region</span><span class="value" id="s-em_region">—</span></div>
+        <hr style="border-color:var(--border);margin:6px 0">
+        <div class="score-row"><span class="label">Score_pixel (log)</span><span class="value" id="s-score_pixel">—</span></div>
+        <div class="score-row"><span class="label">Score_region</span><span class="value" id="s-score_region">—</span></div>
+        <div class="score-row"><span class="label">Score_sym</span><span class="value" id="s-score_sym">—</span></div>
+        <hr style="border-color:var(--border);margin:6px 0">
+        <div class="score-row"><span class="label">cl_pixel (log)</span><span class="value" id="s-cl_pixel">—</span></div>
+        <div class="score-row"><span class="label">cl_region</span><span class="value" id="s-cl_region">—</span></div>
+        <div class="score-row"><span class="label">cl_sym</span><span class="value" id="s-cl_sym">—</span></div>
+        <hr style="border-color:var(--border);margin:6px 0">
+        <div class="score-row">
+            <span class="label">Closure Δ_pixel</span>
+            <span class="value" id="s-correction_pixel">—</span>
+        </div>
+        <div class="score-row">
+            <span class="label">Closure Δ_region</span>
+            <span class="value" id="s-correction_region">—</span>
+        </div>
+        <div class="score-row">
+            <span class="label">Collapsed</span>
+            <span class="value" id="s-collapsed">—</span>
+        </div>
+
+        <div class="metadata" id="meta-info"></div>
+    </div>
+</div>
+
+<!-- ═══ 相图扫描 Tab ═══ -->
+<div id="sweep-panel" class="sweep-panel">
+    <div class="panel">
+        <div class="param-group">
+            <h3>扫描设置</h3>
+            <div class="param-row">
+                <label>X 轴参数</label>
+                <select id="sw-x-param">
+                    <option value="alpha" selected>alpha</option>
+                    <option value="tau">tau</option>
+                    <option value="beta">beta</option>
+                    <option value="gamma">gamma</option>
+                    <option value="sigma">sigma</option>
+                    <option value="K">K</option>
+                </select>
+            </div>
+            <div class="param-row">
+                <label>X min</label>
+                <input type="number" id="sw-x-min" value="0.05" step="0.01">
+            </div>
+            <div class="param-row">
+                <label>X max</label>
+                <input type="number" id="sw-x-max" value="1.0" step="0.01">
+            </div>
+            <div class="param-row">
+                <label>X steps</label>
+                <input type="number" id="sw-x-steps" value="10" min="2" max="50">
+            </div>
+        </div>
+
+        <div class="param-group">
+            <h3>Y 轴（可选）</h3>
+            <div class="param-row">
+                <label>Y 轴参数</label>
+                <select id="sw-y-param">
+                    <option value="" selected>无（1D）</option>
+                    <option value="tau">tau</option>
+                    <option value="beta">beta</option>
+                    <option value="gamma">gamma</option>
+                    <option value="sigma">sigma</option>
+                    <option value="alpha">alpha</option>
+                    <option value="K">K</option>
+                </select>
+            </div>
+            <div class="param-row">
+                <label>Y min</label>
+                <input type="number" id="sw-y-min" value="0.1" step="0.01">
+            </div>
+            <div class="param-row">
+                <label>Y max</label>
+                <input type="number" id="sw-y-max" value="0.8" step="0.01">
+            </div>
+            <div class="param-row">
+                <label>Y steps</label>
+                <input type="number" id="sw-y-steps" value="5" min="2" max="20">
+            </div>
+        </div>
+
+        <div class="param-group">
+            <h3>序参量</h3>
+            <div class="checkbox-group" id="sw-order-params">
+                <label><input type="checkbox" value="phi_em" checked> φ_em</label>
+                <label><input type="checkbox" value="phi_cl" checked> φ_cl</label>
+                <label><input type="checkbox" value="xi"> ξ</label>
+                <label><input type="checkbox" value="phi_dir"> φ_dir</label>
+                <label><input type="checkbox" value="phi_mirror"> φ_mirror</label>
+            </div>
+        </div>
+
+        <button class="btn-generate" id="btn-sweep" onclick="doSweep()">Sweep</button>
+        <div class="progress-bar"><div class="fill" id="sweep-progress"></div></div>
+        <div id="sweep-status" style="font-size:11px;color:var(--text-dim);margin-top:4px;"></div>
+    </div>
+
+    <div class="panel sweep-viz" id="sweep-viz">
+        <div id="sweep-display-select" style="margin-bottom:8px">
+            <label style="color:var(--text-dim);font-size:12px">显示序参量：</label>
+            <select id="sw-display" onchange="renderSweepHeatmap()"></select>
+        </div>
+        <canvas id="c-sweep" width="500" height="400"></canvas>
+        <canvas id="c-sweep-1d" width="500" height="250"></canvas>
+        <div id="sweep-info" style="font-size:11px;color:var(--text-dim);"></div>
+    </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+{
+  "v1_manifest": {
+    "protocol_path": "/home/laole/ai/fibered_csp/image_gen/experiments/protocols/alpha_sigma_size_full_v1.json",
+    "protocol_name": "alpha_sigma_size_full",
+    "protocol_version": "1.0",
+    "protocol_sha256": "22c71498dbf9f40827a58285ddfd3848f95b6864d45e63f485a478bb5507b4b9",
+    "generated_at": "2026-03-10 13:50:40",
+    "result_dir": "/home/laole/ai/fibered_csp/image_gen/experiments/results/full_run_v1",
+    "alphas": [
+      0.04,
+      0.05,
+      0.06,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.11,
+      0.12,
+      0.13,
+      0.14,
+      0.15,
+      0.16,
+      0.17,
+      0.18,
+      0.19,
+      0.2,
+      0.21,
+      0.22,
+      0.23,
+      0.24,
+      0.25,
+      0.26,
+      0.27,
+      0.28,
+      0.29,
+      0.3
+    ],
+    "sigmas": [
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0,
+      1.1,
+      1.2,
+      1.3,
+      1.4,
+      1.5,
+      1.6,
+      1.7,
+      1.8,
+      1.9,
+      2.0
+    ],
+    "seeds": [
+      11,
+      23,
+      37
+    ],
+    "case_names": [
+      "standard_8x8",
+      "relaxed_8x8",
+      "relaxed_12x12",
+      "relaxed_16x16"
+    ],
+    "total_runs": 6156,
+    "raw_runs_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/full_run_v1/raw_runs.jsonl",
+    "analysis_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/full_run_v1/analysis.json",
+    "report_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/full_run_v1/report.md",
+    "summary_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/full_run_v1/summary.md"
+  },
+  "v2_manifest": {
+    "protocol_path": "/home/laole/ai/fibered_csp/image_gen/experiments/protocols/alpha_sigma_size_full_v2.json",
+    "protocol_name": "alpha_sigma_size_full",
+    "protocol_version": "2.0",
+    "protocol_sha256": "615cfa7cb6e7f3954e37f9d88e3d3166e05cc2faeb43008bf894acbb611930c3",
+    "generated_at": "2026-03-10 14:13:27",
+    "result_dir": "/home/laole/ai/fibered_csp/image_gen/experiments/results/full_run_v2",
+    "alphas": [
+      0.04,
+      0.05,
+      0.06,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.11,
+      0.12,
+      0.13,
+      0.14,
+      0.15,
+      0.16,
+      0.17,
+      0.18,
+      0.19,
+      0.2,
+      0.21,
+      0.22,
+      0.23,
+      0.24,
+      0.25,
+      0.26,
+      0.27,
+      0.28,
+      0.29,
+      0.3
+    ],
+    "sigmas": [
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0,
+      1.1,
+      1.2,
+      1.3,
+      1.4,
+      1.5,
+      1.6,
+      1.7,
+      1.8,
+      1.9,
+      2.0
+    ],
+    "seeds": [
+      11,
+      23,
+      37
+    ],
+    "case_names": [
+      "standard_8x8",
+      "relaxed_8x8",
+      "relaxed_12x12",
+      "relaxed_16x16",
+      "relaxed_24x24"
+    ],
+    "total_runs": 7695,
+    "raw_runs_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/full_run_v2/raw_runs.jsonl",
+    "analysis_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/full_run_v2/analysis.json",
+    "report_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/full_run_v2/report.md",
+    "summary_path": "/home/laole/ai/fibered_csp/image_gen/experiments/results/full_run_v2/summary.md"
+  },
+  "common_case_names": [
+    "relaxed_12x12",
+    "relaxed_16x16",
+    "relaxed_8x8",
+    "standard_8x8"
+  ],
+  "added_case_names": [
+    "relaxed_24x24"
+  ],
+  "removed_case_names": [],
+  "common_cases": {
+    "relaxed_12x12": {
+      "stable_fraction_v1": 0.8109161793372319,
+      "stable_fraction_v2": 0.8109161793372319,
+      "stable_fraction_delta": 0.0,
+      "full_threshold_mean_v1": 1.3,
+      "full_threshold_mean_v2": 1.3,
+      "full_threshold_mean_delta": 0.0,
+      "focus_summary_equal": true,
+      "stable_fraction_equal": true,
+      "ascii_phase_map_equal": true
+    },
+    "relaxed_16x16": {
+      "stable_fraction_v1": 0.7192982456140351,
+      "stable_fraction_v2": 0.7192982456140351,
+      "stable_fraction_delta": 0.0,
+      "full_threshold_mean_v1": 1.5333333333333332,
+      "full_threshold_mean_v2": 1.5333333333333332,
+      "full_threshold_mean_delta": 0.0,
+      "focus_summary_equal": true,
+      "stable_fraction_equal": true,
+      "ascii_phase_map_equal": true
+    },
+    "relaxed_8x8": {
+      "stable_fraction_v1": 0.898635477582846,
+      "stable_fraction_v2": 0.898635477582846,
+      "stable_fraction_delta": 0.0,
+      "full_threshold_mean_v1": 0.825,
+      "full_threshold_mean_v2": 0.825,
+      "full_threshold_mean_delta": 0.0,
+      "focus_summary_equal": true,
+      "stable_fraction_equal": true,
+      "ascii_phase_map_equal": true
+    },
+    "standard_8x8": {
+      "stable_fraction_v1": 0.8460038986354775,
+      "stable_fraction_v2": 0.8460038986354775,
+      "stable_fraction_delta": 0.0,
+      "full_threshold_mean_v1": 1.0,
+      "full_threshold_mean_v2": 1.0,
+      "full_threshold_mean_delta": 0.0,
+      "focus_summary_equal": true,
+      "stable_fraction_equal": true,
+      "ascii_phase_map_equal": true
+    }
+  },
+  "size_trend_v2": [
+    {
+      "case_name": "relaxed_12x12",
+      "stable_fraction": 0.8109161793372319,
+      "full_threshold_mean": 1.3,
+      "focus_summary": {
+        "0.10": {
+          "sigma_any_survival": 0.8,
+          "sigma_full_survival": 0.8
+        },
+        "0.08": {
+          "sigma_any_survival": 1.0,
+          "sigma_full_survival": 1.1
+        },
+        "0.06": {
+          "sigma_any_survival": 1.3,
+          "sigma_full_survival": 1.4
+        },
+        "0.04": {
+          "sigma_any_survival": 1.7,
+          "sigma_full_survival": 1.9
+        }
+      }
+    },
+    {
+      "case_name": "relaxed_16x16",
+      "stable_fraction": 0.7192982456140351,
+      "full_threshold_mean": 1.5333333333333332,
+      "focus_summary": {
+        "0.10": {
+          "sigma_any_survival": 1.0,
+          "sigma_full_survival": 1.1
+        },
+        "0.08": {
+          "sigma_any_survival": 1.4,
+          "sigma_full_survival": 1.5
+        },
+        "0.06": {
+          "sigma_any_survival": 1.8,
+          "sigma_full_survival": 2.0
+        },
+        "0.04": {
+          "sigma_any_survival": null,
+          "sigma_full_survival": null
+        }
+      }
+    },
+    {
+      "case_name": "relaxed_24x24",
+      "stable_fraction": 0.621832358674464,
+      "full_threshold_mean": 1.7,
+      "focus_summary": {
+        "0.10": {
+          "sigma_any_survival": 1.6,
+          "sigma_full_survival": 1.7
+        },
+        "0.08": {
+          "sigma_any_survival": null,
+          "sigma_full_survival": null
+        },
+        "0.06": {
+          "sigma_any_survival": null,
+          "sigma_full_survival": null
+        },
+        "0.04": {
+          "sigma_any_survival": null,
+          "sigma_full_survival": null
+        }
+      }
+    },
+    {
+      "case_name": "relaxed_8x8",
+      "stable_fraction": 0.898635477582846,
+      "full_threshold_mean": 0.825,
+      "focus_summary": {
+        "0.10": {
+          "sigma_any_survival": 0.5,
+          "sigma_full_survival": 0.5
+        },
+        "0.08": {
+          "sigma_any_survival": 0.6,
+          "sigma_full_survival": 0.7
+        },
+        "0.06": {
+          "sigma_any_survival": 0.9,
+          "sigma_full_survival": 0.9
+        },
+        "0.04": {
+          "sigma_any_survival": 1.1,
+          "sigma_full_survival": 1.2
+        }
+      }
+    }
+  ]
+}

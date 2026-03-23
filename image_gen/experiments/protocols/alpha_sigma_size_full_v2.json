@@ -1,0 +1,140 @@
+{
+  "protocol_name": "alpha_sigma_size_full",
+  "protocol_version": "2.0",
+  "description": "Full alpha-sigma-size protocol extended with a 24x24 relaxed case under a frozen grid, seeds, and analysis pipeline.",
+  "research_questions": [
+    "Across the alpha-sigma grid, where are the stable, mixed, and collapsed regions for each case?",
+    "For low-alpha slices, what sigma threshold is required for any survival and for full survival?",
+    "How do these thresholds shift under relaxed parameters and larger image sizes, including 24x24?"
+  ],
+  "grid": {
+    "alpha": {"start": 0.04, "stop": 0.30, "step": 0.01},
+    "sigma": {"start": 0.2, "stop": 2.0, "step": 0.1}
+  },
+  "seed_policy": {
+    "seeds": [11, 23, 37]
+  },
+  "focus_alphas": [0.10, 0.08, 0.06, 0.04],
+  "cases": [
+    {
+      "name": "standard_8x8",
+      "params": {
+        "width": 8,
+        "height": 8,
+        "levels": 8,
+        "target_mode": "random_smooth",
+        "symmetry": ["none"],
+        "tau": 0.4,
+        "beta": 1.0,
+        "gamma": 2.0,
+        "mu": 0.0,
+        "dir_strength": 0.0,
+        "dir_angle": 0.0,
+        "translate_period": 4,
+        "T_init": 6.0,
+        "T_min": 0.01,
+        "cooling": 0.998,
+        "max_iter": 800,
+        "color_mode": "grayscale",
+        "K": 255.0,
+        "w_pixel": 0.1
+      }
+    },
+    {
+      "name": "relaxed_8x8",
+      "params": {
+        "width": 8,
+        "height": 8,
+        "levels": 8,
+        "target_mode": "random_smooth",
+        "symmetry": ["none"],
+        "tau": 0.4,
+        "beta": 1.0,
+        "gamma": 2.0,
+        "mu": 0.0,
+        "dir_strength": 0.0,
+        "dir_angle": 0.0,
+        "translate_period": 4,
+        "T_init": 6.0,
+        "T_min": 0.01,
+        "cooling": 0.998,
+        "max_iter": 800,
+        "color_mode": "grayscale",
+        "K": 0.25,
+        "w_pixel": 2.0
+      }
+    },
+    {
+      "name": "relaxed_12x12",
+      "params": {
+        "width": 12,
+        "height": 12,
+        "levels": 8,
+        "target_mode": "random_smooth",
+        "symmetry": ["none"],
+        "tau": 0.4,
+        "beta": 1.0,
+        "gamma": 2.0,
+        "mu": 0.0,
+        "dir_strength": 0.0,
+        "dir_angle": 0.0,
+        "translate_period": 4,
+        "T_init": 6.0,
+        "T_min": 0.01,
+        "cooling": 0.998,
+        "max_iter": 1400,
+        "color_mode": "grayscale",
+        "K": 0.25,
+        "w_pixel": 2.0
+      }
+    },
+    {
+      "name": "relaxed_16x16",
+      "params": {
+        "width": 16,
+        "height": 16,
+        "levels": 8,
+        "target_mode": "random_smooth",
+        "symmetry": ["none"],
+        "tau": 0.4,
+        "beta": 1.0,
+        "gamma": 2.0,
+        "mu": 0.0,
+        "dir_strength": 0.0,
+        "dir_angle": 0.0,
+        "translate_period": 4,
+        "T_init": 6.0,
+        "T_min": 0.01,
+        "cooling": 0.998,
+        "max_iter": 2200,
+        "color_mode": "grayscale",
+        "K": 0.25,
+        "w_pixel": 2.0
+      }
+    },
+    {
+      "name": "relaxed_24x24",
+      "params": {
+        "width": 24,
+        "height": 24,
+        "levels": 8,
+        "target_mode": "random_smooth",
+        "symmetry": ["none"],
+        "tau": 0.4,
+        "beta": 1.0,
+        "gamma": 2.0,
+        "mu": 0.0,
+        "dir_strength": 0.0,
+        "dir_angle": 0.0,
+        "translate_period": 4,
+        "T_init": 6.0,
+        "T_min": 0.01,
+        "cooling": 0.998,
+        "max_iter": 5000,
+        "color_mode": "grayscale",
+        "K": 0.25,
+        "w_pixel": 2.0
+      }
+    }
+  ]
+}

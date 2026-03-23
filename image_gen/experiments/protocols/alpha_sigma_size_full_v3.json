@@ -1,0 +1,44 @@
+{
+  "protocol_name": "alpha_sigma_size_full",
+  "protocol_version": "3.0",
+  "description": "Focused 24x24 sigma-extension protocol to test whether V2 non-survival at low alpha was caused by sigma truncation or persists under a wider sigma range.",
+  "research_questions": [
+    "For relaxed_24x24, does extending sigma beyond 2.0 reveal survival for low-alpha slices that were N/A in V2?",
+    "Over the overlap window sigma<=2.0, are the V3 results identical to the V2 relaxed_24x24 results?",
+    "Within the extended sigma window, which low-alpha slices first show any survival or full survival, if any?"
+  ],
+  "grid": {
+    "alpha": {"start": 0.04, "stop": 0.30, "step": 0.01},
+    "sigma": {"start": 0.2, "stop": 4.0, "step": 0.1}
+  },
+  "seed_policy": {
+    "seeds": [11, 23, 37]
+  },
+  "focus_alphas": [0.10, 0.08, 0.06, 0.04],
+  "cases": [
+    {
+      "name": "relaxed_24x24",
+      "params": {
+        "width": 24,
+        "height": 24,
+        "levels": 8,
+        "target_mode": "random_smooth",
+        "symmetry": ["none"],
+        "tau": 0.4,
+        "beta": 1.0,
+        "gamma": 2.0,
+        "mu": 0.0,
+        "dir_strength": 0.0,
+        "dir_angle": 0.0,
+        "translate_period": 4,
+        "T_init": 6.0,
+        "T_min": 0.01,
+        "cooling": 0.998,
+        "max_iter": 5000,
+        "color_mode": "grayscale",
+        "K": 0.25,
+        "w_pixel": 2.0
+      }
+    }
+  ]
+}
