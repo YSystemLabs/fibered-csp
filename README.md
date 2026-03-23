@@ -1,55 +1,60 @@
 # Fibered-CSP 项目
 
-基于纤维化富集范畴（Fibered Enriched Category）理论框架的约束满足问题（CSP）研究与实现。
+基于纤维化富集范畴（Fibered Enriched Category）理论框架的约束满足问题研究与实现。
 
-## 目录结构
+当前仓库主要包含两个可运行子工程和一组理论笔记：
 
-```
-.                                        # fibered_csp/ — 项目根目录（同时也是 Python 包）
+- `sudoku/`：9×9 数独求解器，验证论文框架在离散布尔约束问题上的可执行特化。
+- `image_gen/`：图像生成与相图扫描实验系统，研究像素层偏好、区域层代价和对称性硬约束之间的耦合行为。
+- `thoughts/` 目录保存纤维化 CSP 的理论笔记、框架说明与相关推导草稿，用于支撑两个子工程的设计。
+
+## 仓库结构
+
+```text
+.                                        # fibered-csp/ — 仓库根目录
 ├── README.md
 ├── __init__.py
-├── sudoku/                              # Sudoku 9×9 求解器（v0.1 参考实现）
+├── sudoku/                              # 数独求解器与测试
+│   ├── README.md
 │   ├── docs/
-│   │   └── sudoku-spec-0v1.md           # 工程规格文档（路线 A 派生式构造 + FAC 传播 + 搜索）
-│   ├── compiler.py                      # 编译模块：固定生成 27 units / Peers / CellsOf / UnitsOf / 810 neq 断言
-│   ├── parser.py                        # 输入解析：81 字符串 → givens，含格式校验与静态冲突检测
-│   ├── solver.py                        # 传播引擎：ASSIGN/ELIMINATE 互递归 + bitmask 域 + trail 回溯 + MRV 搜索
-│   ├── main.py                          # CLI 入口（--log / --count）
-│   ├── test_solver.py                   # pytest 测试套件（16 cases：编译 / 解析 / 求解 / 传播属性）
+│   ├── compiler.py
+│   ├── parser.py
+│   ├── solver.py
+│   ├── main.py
+│   ├── test_solver.py
 │   ├── __init__.py
 │   └── __main__.py
-└── thoughts/                            # 理论笔记与论文
-    ├── 纤维化富集范畴视角下的CSP.md           # 核心论文：Grothendieck 双纤维化 CSP 框架
-    ├── 传统 CSP 解法的纤维化重新理解.md       # 传统 CSP 算法的纤维化重新诠释
-    ├── 纤维化CSP下的扩散模型理解.md           # 纤维化 CSP 与扩散模型的关联
-    └── 从约束出发的扩散模型.md                # 从约束视角理解扩散模型
+├── image_gen/                           # 图像生成 Web 应用 + 实验流水线
+│   ├── README.md
+│   ├── requirements.txt
+│   ├── server.py
+│   ├── docs/
+│   ├── engine/
+│   ├── experiments/
+│   ├── static/
+│   └── tests/
+└── thoughts/                            # 理论笔记与论文草稿
 ```
 
-## 快速使用
+## 子工程入口
 
-```bash
-# 求解数独
-python3 -m sudoku '53..7....6..195....98....6.8...6...34..8.3..17...2...6.6....28....419..5....8..79'
+### Sudoku
 
-# 带日志输出
-python3 -m sudoku --log <puzzle>
+9×9 数独求解与唯一性验证。
 
-# 枚举所有解（验证唯一性）
-python3 -m sudoku --count <puzzle>
+- 文档：`sudoku/README.md`
+- 规格：`sudoku/docs/sudoku-spec-0v1.md`
 
-# 从 stdin 读取
-echo "<puzzle>" | python3 -m sudoku -
+### Image Generator
 
-# 运行测试
-python3 -m pytest sudoku/test_solver.py -v
-```
+图像生成、参数扫描与实验报告流水线。
 
-## 技术概要
+- 文档：`image_gen/README.md`
+- 规格：`image_gen/docs/image-gen-spec-0v1.md`
 
-求解器是论文框架在 **两层链（Pair < Unit）+ Boolean 可行性值域 + 路线 A 派生式构造** 下的可执行特化：
+具体使用说明、安装方法、运行命令和测试入口均放在各自子工程的 README 中。
 
-- **编译期**：Unit 层 `all_different` 自动派生为 Pair 层 `neq`（去重 810 条）
-- **传播**：ASSIGN/ELIMINATE 互递归至不动点（Pair 层 neq AC + Unit 层 Hidden Single + Naked Single）
-- **搜索**：MRV 启发式 + trail 回溯
+## 依赖
 
-依赖：Python 3.10+、pytest（仅测试）。
+- Python 3.10+
+- 具体依赖请查看各子工程 README 与依赖文件
